@@ -1,0 +1,19 @@
+{
+  "name": "sentinel-console",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.12.x"
+  },
+  "packageManager": "npm@11.6.2",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "node --check server.mjs && node --check app.mjs && node --check engine.mjs && node --check contract.mjs",
+    "build": "node build.mjs",
+    "start": "node server.mjs"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}

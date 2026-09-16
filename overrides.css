@@ -1,0 +1,11 @@
+.button,.search,.field input,.field select,.field textarea,.filter-toggle{font-family:"IBM Plex Sans",Arial,sans-serif}
+.button{font-size:13px;font-weight:600;min-height:44px}
+.search,.field input,.field select,.field textarea{font-size:14px;min-height:44px}
+.filter-toggle{min-height:44px}
+.button-small{min-height:44px}
+.notice.success{background:var(--green-bg);border-color:#b7d1c4;color:#205d46}
+.notice.error{background:var(--red-bg);border-color:#e1b8bd;color:#8f2c37}
+.ok-text{color:var(--green)}
+.error-text{color:var(--red)}
+@media(max-width:720px){.heading-actions{align-self:flex-end}.heading-actions .button{min-height:44px}.tabs{height:48px}.tabs a{height:44px}.top-actions .button{min-height:44px}}
+.network i{background:#778287}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f7">
+  <meta name="description" content="Sentinel policy evaluation and revocation console for financial agents.">
+  <title>Sentinel — Evaluation console</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/overrides.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/evaluations" aria-label="Sentinel evaluations">
+      <img src="/sentinel-mark.svg" width="30" height="30" alt="">
+      <span>sentinel</span>
+    </a>
+    <nav class="tabs" aria-label="Primary navigation">
+      <a href="/evaluations" data-view="evaluations">Evaluations</a>
+      <a href="/policies" data-view="policies">Policies</a>
+      <a href="/authority" data-view="authority">Authority</a>
+    </nav>
+    <div class="top-actions">
+      <span class="network"><i></i> BOT Testnet</span>
+      <button id="walletButton" class="button button-quiet" type="button">Connect wallet</button>
+    </div>
+  </header>
+
+  <main id="app" class="workspace" aria-live="polite">
+    <section class="page-heading">
+      <div>
+        <h1 id="pageTitle">Evaluations</h1>
+        <p id="pageDescription">Check each proposal against the active mandate. Failed evidence stays visible.</p>
+      </div>
+      <div class="heading-actions" id="headingActions"></div>
+    </section>
+
+    <section class="authority-strip" aria-label="Current on-chain authority state">
+      <div class="authority-state"><span class="state-dot" id="stateDot"></span><span class="state-label" id="contractState">Reading contract state…</span></div>
+      <div class="strip-facts"><span>BOT Chain Testnet</span><span id="blockNumber">Block —</span><a id="contractLink" href="#" target="_blank" rel="noreferrer">Registry <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <div id="notice" class="notice" hidden role="status"></div>
+    <section id="view" class="view" tabindex="-1"></section>
+    <footer><span>Scenario outcomes are local deterministic fixtures. Registry records are operator-submitted commitments.</span><span id="revision">rev —</span></footer>
+  </main>
+
+  <dialog id="confirmDialog" class="dialog">
+    <form method="dialog" id="confirmForm">
+      <div class="dialog-head"><h2 id="dialogTitle">Confirm action</h2><button class="icon-button" value="cancel" aria-label="Close confirmation" title="Close">×</button></div>
+      <p id="dialogSummary"></p>
+      <label id="reasonWrap" class="field">Revocation summary<input id="revokeReason" maxlength="180" autocomplete="off" placeholder="For example: held-out slippage breach" required></label>
+      <p class="dialog-warning" id="dialogWarning">A wallet confirmation will be requested only after you choose the action below.</p>
+      <div class="dialog-actions"><button class="button button-quiet" value="cancel">Cancel</button><button id="confirmAction" class="button button-danger" type="submit" value="confirm">Confirm in wallet</button></div>
+    </form>
+  </dialog>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>
